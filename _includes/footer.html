@@ -2,6 +2,16 @@
 <footer class="footer py-4 js-page-footer">
   <div class="main">
     {%- include social-links.html -%}
+    {%- if site.data.navigation.header -%}
+    <nav class="footer-nav" aria-label="Footer">
+      <ul>
+        {%- for _item in site.data.navigation.header -%}
+          {%- include snippets/get-nav-url.html path=_item.url -%}
+          <li><a href="{{ __return }}"{% if _item.new_window %} target="_blank" rel="noopener"{% endif %}>{{ _item.title }}{%- if _item.new_window -%}<span class="visually-hidden"> (opens in a new window)</span>{%- endif -%}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+    {%- endif -%}
     <div class="site-info mt-2">
       <p>AI is not used in any of Wing &amp; Fin Designs' creative processes.</p>
       <p>Copyright &copy; {{ site.time | date: '%Y' }} Wing &amp; Fin Designs. All rights reserved.</p>

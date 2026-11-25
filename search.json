@@ -1,0 +1,45 @@
+---
+layout: null
+permalink: /search.json
+sitemap: false
+---
+[
+{%- assign _first = true -%}
+{%- for post in site.posts -%}
+  {%- unless _first -%},{%- endunless -%}
+  {%- assign _first = false -%}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "section": {{ post.categories | first | capitalize | jsonify }},
+    "date": {{ post.date | date: '%-d %b %Y' | jsonify }},
+    "text": {{ post.content | strip_html | normalize_whitespace | jsonify }}
+  }
+{%- endfor -%}
+{%- for page in site.pages -%}
+  {%- if page.title and page.layout == 'article' and page.url != '/' and page.url != '/blog/' and page.url != '/news/' -%}
+  {%- unless _first -%},{%- endunless -%}
+  {%- assign _first = false -%}
+  {
+    "title": {{ page.title | jsonify }},
+    "url": {{ page.url | relative_url | jsonify }},
+    "section": "Page",
+    "date": "",
+    "text": {{ page.content | strip_html | normalize_whitespace | jsonify }}
+  }
+  {%- endif -%}
+{%- endfor -%}
+{%- for piece in site.data.portfolio -%}
+  {%- unless piece.title == 'Untitled' -%}
+  {%- unless _first -%},{%- endunless -%}
+  {%- assign _first = false -%}
+  {
+    "title": {{ piece.title | jsonify }},
+    "url": {{ '/portfolio/' | relative_url | jsonify }},
+    "section": "Portfolio",
+    "date": "",
+    "text": {{ piece.alt | jsonify }}
+  }
+  {%- endunless -%}
+{%- endfor -%}
+]

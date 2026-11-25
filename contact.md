@@ -2,7 +2,8 @@
 title: Contact
 ---
 
-Becky welcomes queries and discussions about her work. Feel free to use the social links below, or send an email.
+I welcome queries and discussions about my work. Feel free to use the social links below, or send an email.
+{:.contact-intro}
 
 {% include social-links.html %}
 

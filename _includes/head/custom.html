@@ -1,3 +1,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carter+One&family=Lexend:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var note = ' (opens in a new window)';
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      if (!/^https?:$/.test(link.protocol) || link.hostname === window.location.hostname) {
+        return;
+      }
+      link.target = '_blank';
+      if (!/\bnoopener\b/.test(link.rel)) {
+        link.rel = (link.rel + ' noopener').trim();
+      }
+      var label = link.getAttribute('aria-label');
+      if (label) {
+        if (label.indexOf('new window') === -1) {
+          link.setAttribute('aria-label', label + note);
+        }
+      } else if (link.textContent.indexOf('new window') === -1) {
+        var hidden = document.createElement('span');
+        hidden.className = 'visually-hidden';
+        hidden.textContent = note;
+        link.appendChild(hidden);
+      }
+    });
+  });
+</script>

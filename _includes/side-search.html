@@ -1,0 +1,89 @@
+{%- assign _search_id = include.id | default: "side-search" -%}
+<form class="side-search" id="{{ _search_id }}" role="search" action="{{ '/search.json' | relative_url }}" onsubmit="return false;">
+  <label class="visually-hidden" for="{{ _search_id }}-input">Search the site</label>
+  <input id="{{ _search_id }}-input" class="side-search__input" type="search" placeholder="Search the site…" autocomplete="off" aria-controls="{{ _search_id }}-results">
+  <p class="side-search__status" id="{{ _search_id }}-status" aria-live="polite"></p>
+  <ul class="side-search__results" id="{{ _search_id }}-results"></ul>
+</form>
+<script>
+  (function () {
+    var form = document.getElementById('{{ _search_id }}');
+    if (!form) return;
+    var input = form.querySelector('.side-search__input');
+    var status = form.querySelector('.side-search__status');
+    var list = form.querySelector('.side-search__results');
+    var index = null;
+    var loading = null;
+    var decoder = document.createElement('textarea');
+
+    function decode(text) {
+      decoder.innerHTML = text;
+      return decoder.value;
+    }
+
+    function load() {
+      if (!loading) {
+        loading = fetch(form.getAttribute('action'))
+          .then(function (response) { return response.json(); })
+          .then(function (data) {
+            index = data.map(function (entry) {
+              entry.title = decode(entry.title);
+              entry.text = decode(entry.text);
+              entry.haystack = (entry.title + ' ' + entry.text).toLowerCase();
+              return entry;
+            });
+          });
+      }
+      return loading;
+    }
+
+    function snippet(text, word) {
+      var at = text.toLowerCase().indexOf(word);
+      if (at < 0) return text.slice(0, 90) + (text.length > 90 ? '…' : '');
+      var start = Math.max(0, at - 40);
+      return (start > 0 ? '…' : '') + text.slice(start, start + 100) + (start + 100 < text.length ? '…' : '');
+    }
+
+    function render() {
+      var query = input.value.trim().toLowerCase();
+      list.innerHTML = '';
+      if (query.length < 2) {
+        status.textContent = '';
+        return;
+      }
+      var words = query.split(/\s+/);
+      var matches = index.filter(function (entry) {
+        return words.every(function (word) { return entry.haystack.indexOf(word) >= 0; });
+      }).slice(0, 8);
+      status.textContent = matches.length ? matches.length + (matches.length === 1 ? ' result' : ' results') : 'No results for "' + input.value.trim() + '"';
+      matches.forEach(function (entry) {
+        var item = document.createElement('li');
+        var link = document.createElement('a');
+        link.href = entry.url;
+        link.textContent = entry.title;
+        var meta = document.createElement('span');
+        meta.className = 'side-search__meta';
+        meta.textContent = entry.section + (entry.date ? ' · ' + entry.date : '');
+        var text = document.createElement('span');
+        text.className = 'side-search__snippet';
+        text.textContent = snippet(entry.text, words[0]);
+        item.appendChild(link);
+        item.appendChild(meta);
+        item.appendChild(text);
+        list.appendChild(item);
+      });
+    }
+
+    input.addEventListener('focus', load);
+    input.addEventListener('input', function () {
+      load().then(render);
+    });
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && input.value) {
+        event.stopPropagation();
+        input.value = '';
+        render();
+      }
+    });
+  })();
+</script>

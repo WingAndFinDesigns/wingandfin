@@ -4,9 +4,10 @@ highlight_theme: tomorrow-night
 url: https://wingandfindesigns.co.uk
 baseurl:
 title: Wing & Fin Designs
+tagline: Birds and fish by Becky Finch
 description: >
-  Becky Finch of Wing & Fin Designs is a painter and cartoonist who creates
-  works of art with a focus on birds and fish.
+  Birds and fish by Becky Finch. Wing & Fin Designs is the art of a painter and
+  cartoonist who creates works of art with a focus on birds and fish.
 
 lang: en
 timezone: Europe/London
@@ -26,7 +27,7 @@ social:
   bluesky: https://wingandfindesigns.bsky.social
 
 paths:
-  archive: /news/
+  archive: /blog/
 
 excerpt_separator: <!--more-->
 license: false
@@ -58,7 +59,7 @@ defaults:
       show_edit_on_github: false
       show_subscribe: false
       pageview: false
-      category: news
+      category: blog
   - scope:
       path: ""
       type: pages
