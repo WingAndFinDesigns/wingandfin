@@ -1,0 +1,85 @@
+remote_theme: kitian616/jekyll-TeXt-theme@v2.2.6
+text_skin: wingandfin
+highlight_theme: tomorrow-night
+url: https://wingandfindesigns.co.uk
+baseurl:
+title: Wing & Fin Designs
+description: >
+  Becky Finch of Wing & Fin Designs is a painter and cartoonist who creates
+  works of art with a focus on birds and fish.
+
+lang: en
+timezone: Europe/London
+
+author:
+  type: person
+  name: Becky Finch
+  bio: Painter and cartoonist with a focus on birds and fish.
+  email: till-county-triage@duck.com
+  facebook: profile.php?id=61578037636209
+
+social:
+  kofi: https://ko-fi.com/wingandfindesigns
+  shop: https://ko-fi.com/wingandfindesigns/shop
+  facebook: https://www.facebook.com/profile.php?id=61578037636209
+  instagram: https://instagram.com/wingandfindesigns
+  bluesky: https://wingandfindesigns.bsky.social
+
+paths:
+  archive: /news/
+
+excerpt_separator: <!--more-->
+license: false
+
+sources: unpkg
+search:
+  provider: false
+sharing:
+  provider: false
+comments:
+  provider: false
+pageview:
+  provider: false
+analytics:
+  provider: false
+
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      sharing: false
+      license: false
+      show_edit_on_github: false
+      show_subscribe: false
+      pageview: false
+      category: news
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: article
+      sharing: false
+      license: false
+      show_edit_on_github: false
+      show_subscribe: false
+      pageview: false
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jemoji
+  - jekyll-seo-tag
