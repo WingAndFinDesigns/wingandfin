@@ -1,5 +1,6 @@
 ---
 title: Contact
+description: I welcome queries and discussions about my work.
 ---
 
 <img class="loach lightbox-ignore" src="{{ '/assets/images/loach.png' | relative_url }}" alt="">

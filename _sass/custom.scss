@@ -784,12 +784,6 @@ h1, h2, h3,
   h2 {
     margin-bottom: 1.25rem;
   }
-  .profile-news-heading {
-    margin-top: 1.75rem;
-    margin-bottom: 1rem;
-    padding-top: 1.75rem;
-    border-top: 1px solid $wf-divider;
-  }
   .profile-photo + p {
     margin-bottom: 0.75rem;
   }
@@ -805,9 +799,6 @@ h1, h2, h3,
   .contact-email {
     margin-top: 0;
   }
-  .news-headlines li {
-    margin-bottom: 0.9rem;
-  }
 }
 
 .home-columns__shop {
@@ -822,25 +813,11 @@ h1, h2, h3,
   box-shadow: 0.136rem 0.21rem 0.25rem 0 $wf-shadow;
 }
 
-.article__content .news-headlines,
 .article__content .shop-items {
   margin-left: 0;
   padding-left: 0;
 }
 
-.news-headlines {
-  margin: 0 0 0.75rem;
-  padding: 0;
-  list-style: none;
-  li {
-    margin: 0 0 0.6rem;
-  }
-  span {
-    display: block;
-    font-size: 0.8rem;
-    color: $wf-pale-text;
-  }
-}
 
 .shop-items {
   margin: 0 0 1rem;
@@ -1054,4 +1031,7 @@ h1, h2, h3,
 
 .home-columns__more {
   margin-top: 1rem;
+  a + a {
+    margin-left: 1.5rem;
+  }
 }

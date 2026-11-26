@@ -2,6 +2,7 @@
 title: "\"Strike While the Iron is Hot\" Applies to Creative Ideas"
 category: blog
 tags: [art]
+description: Do you know this phrase? It's a common phrase in English. It means to take action quickly while conditions are favourable.
 ---
 ![Work in progress painting](/assets/images/blog/2025-09-19-strike-while-the-iron-is-hot-applies-to-creative-ideas/springwip.jpg)
 

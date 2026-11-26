@@ -1,5 +1,8 @@
 ---
 title: About
+description: I'm the artist behind Wing & Fin Designs. I've been creating works of art since around the age of three.
+image: /assets/images/about/sedge-warbler-ringing.jpg
+image_alt: Photo of a Sedge Warbler having been ringed
 lightbox: true
 ---
 

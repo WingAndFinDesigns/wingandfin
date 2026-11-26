@@ -1,10 +1,10 @@
 ---
 title: Portfolio
-excerpt: A selection of Becky's work in various styles and mediums.
+excerpt: A selection of my work in various styles and mediums.
 lightbox: true
 ---
 
-A selection of Becky's work in various styles and mediums.
+A selection of my work in various styles and mediums.
 
 <div class="portfolio-grid">
 {%- for piece in site.data.portfolio %}

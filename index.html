@@ -12,9 +12,9 @@ show_title: false
       {% capture home_feature %}{% include home-feature.md %}{% endcapture %}
       {{ home_feature | markdownify }}
     </div>
-    {% assign latest_blog = site.categories.blog | slice: 0, 5 %}
-    {% include article-list.html articles=latest_blog type='item' show_info=true show_excerpt=true show_readmore=true %}
-    <p class="home-columns__more"><a href="{{ '/blog/' | relative_url }}">All blog posts &rarr;</a></p>
+    {% assign latest_posts = site.posts | slice: 0, 5 %}
+    {% include article-list.html articles=latest_posts type='item' show_info=true show_excerpt=true show_readmore=true %}
+    <p class="home-columns__more"><a href="{{ '/blog/' | relative_url }}">All blog posts &rarr;</a> <a href="{{ '/news/' | relative_url }}">All news &rarr;</a></p>
   </div>
 
   <aside class="home-columns__profile" aria-label="About Becky">
@@ -27,13 +27,6 @@ show_title: false
     {% if site.author.email %}
     <p class="contact-email"><a class="button button--primary button--rounded" href="mailto:{{ site.author.email }}">Send Email</a></p>
     {% endif %}
-    <h2 class="profile-news-heading">Latest News</h2>
-    <ul class="news-headlines">
-      {% for post in site.categories.news limit: 3 %}
-      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span>{{ post.date | date: '%-d %b %Y' }}</span></li>
-      {% endfor %}
-    </ul>
-    <p><a href="{{ '/news/' | relative_url }}">All news &rarr;</a></p>
   </aside>
 
   <aside class="home-columns__shop" aria-label="Shop items">
