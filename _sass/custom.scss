@@ -797,6 +797,9 @@ h1, h2, h3,
     border-top: 1px solid $wf-divider;
     .kofi-members__button {
       text-align: center;
+      .button {
+        box-shadow: none;
+      }
     }
     .kofi-members__rss {
       margin-top: 1.5rem;
@@ -1067,6 +1070,10 @@ h1, h2, h3,
   a + a {
     margin-left: 1.5rem;
   }
+}
+
+.post-support .button {
+  box-shadow: none;
 }
 
 .post-support {
