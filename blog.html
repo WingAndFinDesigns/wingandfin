@@ -12,16 +12,18 @@ title: Blog
 {%- assign all_tags = all_tags | uniq | sort -%}
 
 <div class="tag-filter" role="group" aria-label="Filter posts by tag">
-  <button type="button" class="tag-filter__button" data-tag="" aria-pressed="true">All <span class="tag-filter__count">{{ blog_posts | size }}</span></button>
+  <button type="button" class="tag-filter__button" data-tag="" data-feed="{{ '/feed/blog.xml' | relative_url }}" aria-pressed="true">All <span class="tag-filter__count">{{ blog_posts | size }}</span></button>
   {%- for tag in all_tags -%}
     {%- assign tag_count = 0 -%}
     {%- for post in blog_posts -%}
       {%- if post.tags contains tag -%}{%- assign tag_count = tag_count | plus: 1 -%}{%- endif -%}
-    {%- endfor %}
-  <button type="button" class="tag-filter__button" data-tag="{{ tag }}" aria-pressed="false">{{ tag }} <span class="tag-filter__count">{{ tag_count }}</span></button>
+    {%- endfor -%}
+    {%- assign tag_slug = tag | slugify %}
+  <button type="button" class="tag-filter__button" data-tag="{{ tag }}" data-feed="{{ '/feed/by_tag/' | append: tag_slug | append: '.xml' | relative_url }}" aria-pressed="false">{{ tag }} <span class="tag-filter__count">{{ tag_count }}</span></button>
   {%- endfor %}
 </div>
 <p class="tag-filter__status" aria-live="polite"></p>
+<p class="feed-link"><a class="js-feed-link" href="{{ '/feed/blog.xml' | relative_url }}"><i class="fas fa-rss" aria-hidden="true"></i> <span class="js-feed-label">Subscribe to all blog posts via RSS</span></a></p>
 
 {% include article-list.html articles=blog_posts type='item' show_info=true show_excerpt=true show_readmore=true %}
 
@@ -29,6 +31,8 @@ title: Blog
   (function () {
     var buttons = document.querySelectorAll('.tag-filter__button');
     var status = document.querySelector('.tag-filter__status');
+    var feedLink = document.querySelector('.js-feed-link');
+    var feedLabel = document.querySelector('.js-feed-label');
     var items = Array.prototype.map.call(document.querySelectorAll('.article-list .item'), function (item) {
       var tags = Array.prototype.map.call(item.querySelectorAll('.article__info .left-col a'), function (a) {
         return a.textContent.trim();
@@ -46,8 +50,11 @@ title: Blog
         if (match) shown++;
       });
       Array.prototype.forEach.call(buttons, function (b) {
-        b.setAttribute('aria-pressed', b.getAttribute('data-tag') === tag ? 'true' : 'false');
+        var active = b.getAttribute('data-tag') === tag;
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        if (active) feedLink.href = b.getAttribute('data-feed');
       });
+      feedLabel.textContent = tag ? 'Subscribe to “' + tag + '” posts via RSS' : 'Subscribe to all blog posts via RSS';
       status.textContent = tag ? 'Showing ' + shown + (shown === 1 ? ' post' : ' posts') + ' tagged "' + tag + '"' : '';
       if (updateUrl && window.history.replaceState) {
         var url = window.location.pathname + (tag ? '?tag=' + encodeURIComponent(tag).replace(/%20/g, '+') : '');

@@ -62,7 +62,16 @@
 
 {%- assign _paths_rss = site.paths.rss | default: site.data.variables.default.paths.rss -%}
 {%- include snippets/get-nav-url.html path=_paths_rss -%}
-<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ __return }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}: everything" href="{{ __return }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}: blog" href="{{ '/feed/blog.xml' | relative_url }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}: news" href="{{ '/feed/news.xml' | relative_url }}">
+{%- if page.url == '/blog/' -%}
+  {%- for _tag in site.tags -%}
+    {%- assign _tag_name = _tag | first -%}
+    {%- assign _tag_slug = _tag_name | slugify %}
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}: {{ _tag_name }}" href="{{ '/feed/by_tag/' | append: _tag_slug | append: '.xml' | relative_url }}">
+  {%- endfor -%}
+{%- endif %}
 
 {%- include head/favicon.html -%}
 

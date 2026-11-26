@@ -2,4 +2,6 @@
 title: Latest News
 ---
 
+<p class="feed-link"><a href="{{ '/feed/news.xml' | relative_url }}"><i class="fas fa-rss" aria-hidden="true"></i> Subscribe to news via RSS</a></p>
+
 {% include article-list.html articles=site.categories.news type='item' show_info=true show_excerpt=true show_readmore=true %}

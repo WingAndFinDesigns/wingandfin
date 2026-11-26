@@ -70,6 +70,12 @@ defaults:
       show_subscribe: false
       pageview: false
 
+feed:
+  categories:
+    - blog
+    - news
+  tags: true
+
 exclude:
   - Gemfile
   - Gemfile.lock

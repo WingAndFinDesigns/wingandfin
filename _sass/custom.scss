@@ -145,6 +145,11 @@ h1, h2, h3,
 
 .article__content h2 {
   border-bottom: 0;
+  text-align: left;
+}
+
+.article__content .home-columns__profile h2,
+.article__content .home-columns__shop h2 {
   text-align: center;
 }
 
@@ -511,7 +516,7 @@ h1, h2, h3,
 
 .flourish {
   display: block;
-  width: 60%;
+  width: 30%;
   max-width: 20rem;
   margin: 2rem auto;
   filter: invert(1) drop-shadow(0.088rem 0.088rem 0.125rem #000);
@@ -791,9 +796,14 @@ h1, h2, h3,
     margin-top: 1.75rem;
     padding-top: 1.75rem;
     border-top: 1px solid $wf-divider;
+    .kofi-members__button {
+      text-align: center;
+    }
+    .kofi-members__rss {
+      margin-top: 1.5rem;
+    }
     p:last-child {
       margin-bottom: 0;
-      text-align: center;
     }
   }
 }
@@ -1176,4 +1186,14 @@ html:has(.kofi-dialog[open]) {
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.article__content .feed-link {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+
+  .fa-rss {
+    margin-right: 0.25rem;
+    color: #f8a356;
+  }
 }
