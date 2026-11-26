@@ -19,9 +19,9 @@
       '<figcaption class="wf-lightbox__caption"></figcaption>' +
     '</figure>' +
     '<p class="wf-lightbox__count" aria-live="polite"></p>' +
-    '<button type="button" class="wf-lightbox__btn wf-lightbox__prev" aria-label="Previous image">&#8249;</button>' +
-    '<button type="button" class="wf-lightbox__btn wf-lightbox__next" aria-label="Next image">&#8250;</button>' +
-    '<button type="button" class="wf-lightbox__btn wf-lightbox__close" aria-label="Close image viewer">&times;</button>';
+    '<button type="button" class="wf-lightbox__btn wf-lightbox__prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 5l-7 7 7 7"/></svg></button>' +
+    '<button type="button" class="wf-lightbox__btn wf-lightbox__next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 5l7 7-7 7"/></svg></button>' +
+    '<button type="button" class="wf-lightbox__btn wf-lightbox__close" aria-label="Close image viewer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
   document.body.appendChild(overlay);
 
   var bigImage = overlay.querySelector('.wf-lightbox__img');

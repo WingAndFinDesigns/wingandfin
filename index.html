@@ -23,10 +23,11 @@ show_title: false
     <img class="profile-photo" src="{{ '/assets/images/about/goldfish-keeping.jpg' | relative_url }}" alt="Photo of Becky in front of a goldfish tank">
     <p>I'm an artist; my main subjects of interest are birds and fish.<br>I'm also a licensed bird ringer and dedicated aquarist with several fish tanks.</p>
     <p><a href="{{ '/about/' | relative_url }}">More about me &rarr;</a></p>
-    {% include social-links.html %}
-    {% if site.author.email %}
-    <p class="contact-email"><a class="button button--primary button--rounded" href="mailto:{{ site.author.email }}">Send Email</a></p>
-    {% endif %}
+    <section class="kofi-members" aria-labelledby="kofi-members-heading">
+      <h2 id="kofi-members-heading">Subscribe</h2>
+      <p>Join my <a href="{{ site.social.kofi }}">Ko-fi</a> to get exclusive members-only content! Subscriptions directly support the cost of bird ringing.</p>
+      <p><a class="button button--primary button--rounded" href="https://ko-fi.com/summary/961b6b6c-8e41-443a-83c2-f219fdeba21a">Sign Up</a></p>
+    </section>
   </aside>
 
   <aside class="home-columns__shop" aria-label="Shop items">

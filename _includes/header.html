@@ -39,6 +39,8 @@
               <li class="navigation__item"><a href="{{ _nav_url }}"{% if _item.new_window %} target="_blank" rel="noopener"{% endif %}>{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ __return }}{%- endif -%}{%- if _item.new_window -%}<span class="visually-hidden"> (opens in a new window)</span>{%- endif -%}</a></li>
             {%- endif -%}
           {%- endfor -%}
+          {%- if site.author.email -%}<li class="navigation__item navigation__item--email"><a href="mailto:{{ site.author.email }}">Email me</a></li>{%- endif -%}
+          {%- if site.author.email -%}<li class="navigation__search"><a class="button button--secondary button--circle wf-search-toggle wf-email-link" href="mailto:{{ site.author.email }}" aria-label="Email me" title="Email me"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>{%- endif -%}
           <li class="navigation__search"><button type="button" class="button button--secondary button--circle wf-search-toggle js-wf-search-toggle" aria-label="Search the site" aria-expanded="false" aria-controls="header-search"><i class="fas fa-search" aria-hidden="true"></i></button></li>
           {%- if site.search.provider -%}
             <li><button class="button button--secondary button--circle search-button js-search-toggle" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button></li>

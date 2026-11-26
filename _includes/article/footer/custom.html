@@ -1,0 +1,32 @@
+{%- if page.collection == 'posts' and page.categories contains 'blog' -%}
+<div class="post-support">
+  <p>If you enjoyed this content, feel free to leave a small donation on my Ko-fi account to support the cost of my bird ringing work. Thank you!</p>
+  <p><button type="button" class="button button--primary button--rounded js-kofi-open" aria-haspopup="dialog">Donate</button></p>
+  <dialog class="kofi-dialog" aria-label="Support me on Ko-fi">
+    <button type="button" class="kofi-dialog__close js-kofi-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <iframe class="kofi-dialog__frame" data-src="https://ko-fi.com/{{ site.social.kofi | split: '/' | last }}/?hidefeed=true&amp;widget=true&amp;embed=true&amp;preview=true" title="Ko-fi support form"></iframe>
+  </dialog>
+</div>
+<script>
+  (function () {
+    var opener = document.querySelector('.js-kofi-open');
+    var dialog = document.querySelector('.kofi-dialog');
+    if (!opener || !dialog || typeof dialog.showModal !== 'function') return;
+    var frame = dialog.querySelector('iframe');
+    opener.addEventListener('click', function () {
+      if (!frame.src) frame.src = frame.getAttribute('data-src');
+      dialog.showModal();
+      dialog.querySelector('.js-kofi-close').focus();
+    });
+    dialog.querySelector('.js-kofi-close').addEventListener('click', function () {
+      dialog.close();
+    });
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', function () {
+      opener.focus();
+    });
+  })();
+</script>
+{%- endif -%}
