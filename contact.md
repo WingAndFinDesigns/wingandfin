@@ -2,6 +2,8 @@
 title: Contact
 ---
 
+<img class="loach lightbox-ignore" src="{{ '/assets/images/loach.png' | relative_url }}" alt="">
+
 I welcome queries and discussions about my work. Feel free to use the social links below, or send an email.
 {:.contact-intro}
 

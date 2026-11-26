@@ -3,8 +3,6 @@ title: About
 lightbox: true
 ---
 
-<img class="about-loach lightbox-ignore" src="{{ '/assets/images/loach.png' | relative_url }}" alt="">
-
 I'm the artist behind Wing & Fin Designs. I've been creating works of art since around the age of three. I work in a number of styles, from silly cartoons to detailed realism. My preferred painting mediums are gouache and acrylic. For graphical design work I use a Wacom MobileStudio Pro 13 with Adobe Photoshop.
 
 I have long been fascinated by birds and fish. Along with being a qualified bird ringer for the British bird ringing scheme, I am also a dedicated aquarist and enjoy catching and observing wild fish.

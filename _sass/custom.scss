@@ -380,7 +380,7 @@ h1, h2, h3,
 
 .header__title > .menu-button {
   display: none;
-  margin-left: map-get($spacers, 2);
+  margin-left: 0.5rem;
   @include wf-phone {
     display: flex;
     margin-left: 0.25rem;
@@ -502,7 +502,7 @@ h1, h2, h3,
   }
 }
 
-.article__content img.about-loach {
+.article__content img.loach {
   display: block;
   width: 100%;
   max-width: 16rem;

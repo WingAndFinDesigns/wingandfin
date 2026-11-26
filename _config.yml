@@ -84,3 +84,8 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-seo-tag
+
+sass:
+  quiet_deps: true
+  silence_deprecations:
+    - import
