@@ -58,6 +58,7 @@ $wf-ink: #17263f;
   .header__title {
     height: auto;
     margin-right: 0;
+    container-type: inline-size;
 
     & > .header__brand {
       height: 5rem;
@@ -74,7 +75,8 @@ $wf-ink: #17263f;
   }
 
   .header .header__brand > a {
-    font-size: clamp(1rem, calc(9.87vw - 25px), 1.5rem);
+    font-size: 1rem;
+    font-size: clamp(1rem, calc(9.87cqi - 21.8px), 1.5rem);
   }
 
   .header .header__brand > .header__logo {
@@ -95,7 +97,8 @@ $wf-ink: #17263f;
 
 @media (max-width: 419.98px) {
   .header .header__brand > a {
-    font-size: clamp(0.85rem, calc(9.87vw - 22.25px), 1.15rem);
+    font-size: 0.85rem;
+    font-size: clamp(0.85rem, calc(9.87cqi - 19.1px), 1.15rem);
   }
 
   .header .header__brand > .header__logo {
