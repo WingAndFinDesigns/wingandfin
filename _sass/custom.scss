@@ -1076,16 +1076,67 @@ h1, h2, h3,
 }
 
 .post-support {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 2.5rem 0 0;
-  padding-top: 1.75rem;
+  padding: 1.5rem 0 0;
   border-top: 1px solid $wf-divider;
   text-align: center;
+
+  @include wf-phone {
+    grid-template-columns: 1fr;
+  }
 
   p {
     margin: 0 0 1rem;
     font-size: 1rem;
   }
+}
 
+.post-support__section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+
+  & + & {
+    border-left: 1px solid $wf-divider;
+  }
+
+  @include wf-phone {
+    padding: 0;
+
+    & + & {
+      margin-top: 1.75rem;
+      padding-top: 1.75rem;
+      border-left: 0;
+      border-top: 1px solid $wf-divider;
+    }
+  }
+}
+
+.article__content .post-support h2,
+.post-support h2 {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.post-support h2 .anchor {
+  display: none;
+}
+
+.post-support p a:not(.button) {
+  color: #fff;
+  text-decoration: underline;
+  &:hover {
+    color: $wf-pale-text;
+  }
+}
+
+.post-support .post-support__button {
+  margin: auto 0 0;
+  padding-top: 0.25rem;
 }
 
 .kofi-dialog {
@@ -1200,5 +1251,26 @@ html:has(.kofi-dialog[open]) {
   .fa-rss {
     margin-right: 0.25rem;
     color: #f8a356;
+  }
+}
+
+.article__section-navigator {
+  .previous,
+  .next {
+    position: relative;
+  }
+
+  .previous > a::after,
+  .next > a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  & > .previous > a:hover,
+  & > .next > a:hover,
+  .root[data-is-touch] & > .previous > a:hover,
+  .root[data-is-touch] & > .next > a:hover {
+    color: #fff;
   }
 }

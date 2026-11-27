@@ -1,0 +1,18 @@
+{%- assign _previous = page.previous -%}
+{%- assign _next = page.next -%}
+{%- if _next or _previous -%}
+  <div class="article__section-navigator clearfix">
+    {%- if _previous -%}
+      {%- include snippets/prepend-baseurl.html path=_previous.url -%}
+      {%- assign _href = __return -%}
+      {%- include snippets/get-locale-string.html key='PREVIOUS' -%}
+      <div class="previous"><span>{{ __return }}</span><a href="{{ _href }}">{{ _previous.title }}</a></div>
+    {%- endif -%}
+    {%- if _next -%}
+      {%- include snippets/prepend-baseurl.html path=_next.url -%}
+      {%- assign _href = __return -%}
+      {%- include snippets/get-locale-string.html key='NEXT' -%}
+      <div class="next"><span>{{ __return }}</span><a href="{{ _href }}">{{ _next.title }}</a></div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

@@ -1,7 +1,15 @@
 {%- if page.collection == 'posts' and page.categories contains 'blog' -%}
 <div class="post-support">
-  <p>If you enjoyed this content, feel free to leave a small donation on my Ko-fi account to support the cost of my bird ringing work. Thank you!</p>
-  <p><button type="button" class="button button--primary button--rounded js-kofi-open" aria-haspopup="dialog">Donate</button></p>
+  <section class="post-support__section" aria-labelledby="post-donate-heading">
+    <h2 id="post-donate-heading">Donate</h2>
+    <p>If you enjoyed this content, feel free to leave a small donation on my Ko-fi account to support the cost of my bird ringing work. Thank you!</p>
+    <p class="post-support__button"><button type="button" class="button button--primary button--rounded js-kofi-open" aria-haspopup="dialog">Donate</button></p>
+  </section>
+  <section class="post-support__section" aria-labelledby="post-sponsor-heading">
+    <h2 id="post-sponsor-heading">Support</h2>
+    <p>Sponsor me on <a href="{{ site.social.kofi }}">Ko-fi</a> to help fund the cost of bird ringing. You'll also receive exclusive members-only content.</p>
+    <p class="post-support__button"><a class="button button--primary button--rounded" href="{{ site.social.kofi_sponsor }}">Become a Sponsor</a></p>
+  </section>
   <dialog class="kofi-dialog" aria-label="Support me on Ko-fi">
     <button type="button" class="kofi-dialog__close js-kofi-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <iframe class="kofi-dialog__frame" data-src="https://ko-fi.com/{{ site.social.kofi | split: '/' | last }}/?hidefeed=true&amp;widget=true&amp;embed=true&amp;preview=true" title="Ko-fi support form"></iframe>
