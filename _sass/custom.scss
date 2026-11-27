@@ -1274,3 +1274,25 @@ html:has(.kofi-dialog[open]) {
     color: #fff;
   }
 }
+
+.home-columns .article__info .left-col {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  padding-left: 0;
+
+  &::before {
+    content: "Tags:";
+    margin-right: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $wf-pale-text;
+  }
+}
+
+.home-columns .article__info .right-col {
+  @include wf-phone {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
