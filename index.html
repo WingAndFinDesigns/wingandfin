@@ -13,7 +13,7 @@ show_title: false
       {{ home_feature | markdownify }}
     </div>
     {% assign latest_posts = site.posts | slice: 0, 5 %}
-    {% include article-list.html articles=latest_posts type='item' show_info=true show_excerpt=true show_readmore=true %}
+    {% include article-list.html articles=latest_posts type='item' show_cover=true show_info=true show_excerpt=true show_readmore=true %}
     <p class="home-columns__more"><a href="{{ '/blog/' | relative_url }}">All blog posts &rarr;</a> <a href="{{ '/news/' | relative_url }}">All news &rarr;</a></p>
   </div>
 

@@ -1296,3 +1296,25 @@ html:has(.kofi-dialog[open]) {
     padding-left: 0;
   }
 }
+
+.home-columns .article-list .item {
+  flex-direction: column;
+}
+
+.home-columns .article-list .item__image {
+  margin: 0 0 1.25rem;
+
+  a {
+    display: block;
+  }
+
+  img.image {
+    display: block;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0.136rem 0.21rem 0.25rem 0 $wf-shadow;
+  }
+}
