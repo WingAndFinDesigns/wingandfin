@@ -22,7 +22,7 @@ On the passerine front, the Old Railway Line had its first fledgling bird of the
 
 ![Fledgling European Robin](/assets/images/blog/2022-05-09-bird-ringing-waders-and-fledgling-passerines/robinfledge2022.jpg)
 
-As Robins are resident birds, they begin to breed much earlier in the year than migratory species. Their first broods are now out and flying around (into our nets!), What a lovely surprise this was!\\
+As Robins are resident birds, they begin to breed much earlier in the year than migratory species. Their first broods are now out and flying around (into our nets!). What a lovely surprise this was!\\
 A couple of new species have also been caught, Common Whitethroat (top) and Lesser Whitethroat (bottom). These are male birds, though you can't sex a Lesser Whitethroat on plumage alone.
 
 ![Male Common Whitethroat](/assets/images/blog/2022-05-09-bird-ringing-waders-and-fledgling-passerines/commwhitethroat2.jpg)
@@ -56,6 +56,6 @@ Bullfinch - 2\\
 Blackbird - 3\\
 Willow Warbler - 1\\
 Lesser Whitethroat - 1\\
-Bluetit - 1
+Blue Tit - 1
 
 Total = 26
