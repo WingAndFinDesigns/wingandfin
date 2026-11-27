@@ -437,6 +437,7 @@ h1, h2, h3,
 
   a,
   a:visited {
+    font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.1rem;
     color: #fff;
@@ -453,7 +454,8 @@ h1, h2, h3,
   text-align: center;
   .site-info p {
     margin: 0.25rem 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 400;
   }
 }
 
